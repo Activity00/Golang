@@ -1,4 +1,4 @@
-package array
+package main
 
 type Person struct {
 	name string

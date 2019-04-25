@@ -1,4 +1,4 @@
-package array
+package main
 
 func printArray(array *[10]int, count int) {
 	for i := 0; i < count; i++ {
