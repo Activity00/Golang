@@ -5,12 +5,9 @@ type Person struct {
 }
 
 func main() {
-	// 都会值拷贝
 	p := Person{name: "wmh"}
-	array0 := [1]Person{p}
-	var array1 [1]Person
-	array1 = array0
-
-	println(&array0[0])
-	println(&array1[0])
+	array0 := [...]Person{p}
+	array1 := array0
+	println(&array0, &array0[0])
+	println(&array1, &array1[0])
 }

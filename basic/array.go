@@ -1,8 +1,8 @@
 package main
 
-func printArray(array []int) {
-	for i, x := range array {
-		println(i, x)
+func printArray(array *[10]int, count int) {
+	for i := 0; i < count; i++ {
+		println(array[i])
 	}
 }
 
@@ -15,12 +15,10 @@ func main() {
 
 	// 初始化
 	array1 := [10]int{1, 2, 3, 4, 5}
-	for i, x := range array1 {
-		println(i, x)
-	}
+	printArray(&array1, len(array1))
 
 	// 默认长度
-	array2 := []int{1, 2, 4}
+	array2 := [...]int{1, 2, 4}
 	for i, x := range array2 {
 		println(i, x)
 	}
@@ -31,7 +29,7 @@ func main() {
 	}
 
 	//特定赋值
-	array4 := []int{1: 100, 5: 500}
+	array4 := [...]int{1: 100, 5: 500}
 	for i, x := range array4 {
 		println(i, x)
 	}
@@ -39,13 +37,8 @@ func main() {
 	println(array4[1])
 	array4[1] = 1000
 	println(array4[1])
-	println(array4)
 
 	//指针数组
 	array5 := [5]*int{1: new(int), 4: new(int)}
-	*array5[1] = 10
-	*array5[4] = 40
-	for i, x := range array5 {
-		println(i, x)
-	}
+	println(array5[1], array5[3])
 }
